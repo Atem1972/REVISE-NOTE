@@ -34,6 +34,7 @@ docker ps -a  = to list all all containers plus exited once
 docker --name =  to give a name to container  ie(docker run -d --name web httpd)
 docker rename = to rename a container ie docker rename web  fun
 docker  run -d --name gam  redis = this will go out there and download redis
+docker exec -it web pwd   ## this command will login to ur container check the working directory and print the output on ur linux terminal  (web is the container name, u can do all inventory in that container like pwd,mproc, uname -r etc
 docker stop web
 docker start web
 docker rm -f  web = to delete container
