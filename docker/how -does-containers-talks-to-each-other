@@ -15,6 +15,16 @@ containers can talk to each other if they are in the network as seen bellow
 - run docker ps
 - docker exec mariadb env  = to check the environment variable
 - docker run -d --rm --name wordpress1 -p 80:80 --network net  -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_USER=oracle -e WORDPRESS_DB_PASSWORD=abc123 -e WORDPRESS_DB_NAME=webserver wordpress  # this will bring up a wordpress container that has been link to our database
+- 17 or this BELLOW same command RUN  ALL BELLOW AT ONCE TO 26
+docker run -d --rm --name wordpress1 \
+  -p 80:80 \
+  --network net \
+  -e WORDPRESS_DB_HOST=mariadb \
+  -e WORDPRESS_DB_USER=oracle \
+  -e WORDPRESS_DB_PASSWORD=abc123 \
+  -e WORDPRESS_DB_NAME=webserver \
+  wordpress
+
 -run docker ps = to least all the container runing
 - take the ip addres of ur server plus port number to the broswer to see wordpress ie 2.2.2.2:80
 ## explanation of the commands in 13 above ; 
