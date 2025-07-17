@@ -2,7 +2,8 @@
 sudo usermod -aG docker $USER
 newgrp docker
 docker run hello-world
-docker build -t <httpd:v1.0 .  # this is done when u have finish creating and configure ur Dockerfile and want to run image out from it
+docker build -t <httpd:v1.0> -f Dockerfile.sh  .    # this is done when u have finish creating and configure ur Dockerfile and want to run image out from it
+docker run -d --name web -p 80:8081 httpd
 docker -d = to run the container on the background (detach mode)
 docker --rm =  this is when u want after stoping a container it shld be remove automatically
 docker -v   = to check version
