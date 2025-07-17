@@ -9,16 +9,16 @@ step2
 - RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"   # to install aws cli in ur ec2
   unzip awscliv2.zip
   sudo ./aws/install
--RUN  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin  .dkr.ecr.us-east-1.amazonaws.com   # to give permision   # ALWAYS REPLACE US-EAST-1 AND 455452245698 THIS IS UR AWS ACCOUNT ID NUMBER
+-RUN  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin  .dkr.ecr.us-east-1.amazonaws.com   # to give permision   # ALWAYS REPLACE US-EAST-1 AND 445698 THIS IS UR AWS ACCOUNT ID NUMBER
 -   aws ecr create-repository --repository-name <your-repo-name> --region <your-region>    # it will go and create repo in ecr in aws
--    docker tag atem1972/img:v2 45545698.dkr.ecr.us-east-1.amazonaws.com/cv-app:v1.0     # line 15 explain line 14 same code   # to push the image from ur ec2 to ecr, 
+-    docker tag atem1972/img:v2 4555698.dkr.ecr.us-east-1.amazonaws.com/cv-app:v1.0     # line 15 explain line 14 same code   # to push the image from ur ec2 to ecr, 
      docker tag <local-image-name>:<tag> <aws_account_id>.dkr.ecr.<region>.amazonaws.com/<your-repo-name>:<tag>
--   docker tag atem1972/img:v2 455452245698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3  ##  here we are taken our image locally tag it to our repo name in ecr and attach version
-- docker push 455452245698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3
+-   docker tag atem1972/img:v2 455698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3  ##  here we are taken our image locally tag it to our repo name in ecr and attach version
+- docker push 455445698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3
 
 take note lets say we want to push a new version, we most first run the tag command i line 17 before we can now run push for example we need my-resum:v1.5
-  - docker tag atem1972/img:v2 455452245698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.5
-  - docker push 455452245698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.5
+  - docker tag atem1972/img:v2 45698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.5
+  - docker push 45545698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.5
 
 
      BUT IF U URSELF BUILD THE IMAGE USE THE BELOW
@@ -29,7 +29,7 @@ RUN echo "Version 1.5" > /usr/local/apache2/htdocs/version.txt
 save and exite
   
 ####Then build and push each separately:
-docker build -t 45545698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3 -f Dockerfile.sh .  ## 4552535= this is my aws acount id,  my-resum= is the name of my repo in ecr  v1.3= the version u want it to be in aws
-docker push 455452245698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3
+docker build -t 4545698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3 -f Dockerfile.sh .  ## 4552535= this is my aws acount id,  my-resum= is the name of my repo in ecr  v1.3= the version u want it to be in aws
+docker push 455698.dkr.ecr.us-east-1.amazonaws.com/my-resum:v1.3
 
 
